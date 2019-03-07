@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yuantu.gaia</groupId>
+    <artifactId>gaia-root</artifactId>
+    <packaging>pom</packaging>
+
+    <version>1.0.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>io.spring.platform</groupId>
+        <artifactId>platform-bom</artifactId>
+        <version>Cairo-SR7</version>
+    </parent>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+
+        <maven.test.skip>true</maven.test.skip>
+
+        <fastjson.version>1.2.41</fastjson.version>
+        <fasterxml.jackson>2.8.2</fasterxml.jackson>
+        <powermock.version>1.4.12</powermock.version>
+
+        <druid.version>1.1.9</druid.version>
+        <dubbo.version>2.5.3</dubbo.version>
+        <zookeeper.version>3.4.10</zookeeper.version>
+        <disruptor.version>3.4.1</disruptor.version>
+
+
+        <mybatisplus-spring-boot-starter.version>2.1.9</mybatisplus-spring-boot-starter.version>
+        <mybatisplus.version>2.1.9</mybatisplus.version>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- dubbo begin -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+                <exclusions>
+                    <!--spring版本太低-->
+                    <exclusion>
+                        <artifactId>spring</artifactId>
+                        <groupId>org.springframework</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>slf4j-log4j12</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>log4j</artifactId>
+                        <groupId>log4j</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.101tec</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>0.10</version>
+            </dependency>
+            <!--dubbo end -->
+
+
+            <!-- mybatis begin -->
+            <!--<dependency>-->
+            <!--<groupId>org.mybatis.spring.boot</groupId>-->
+            <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
+            <!--<version>1.3.1</version>-->
+            <!--</dependency>-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisplus-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
+            <!-- mybatis end -->
+
+            <dependency>
+                <groupId>com.github.stuxuhai</groupId>
+                <artifactId>jpinyin</artifactId>
+                <version>1.1.8</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Snapshots</name>
+            <url>http://maven.yuantutech.com:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>releases</id>
+            <url>http://maven.yuantutech.com:8081/nexus/content/repositories/releases</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <!--<version>2.2.1</version>-->
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
