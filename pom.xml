@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.yuantu.gaia</groupId>
-    <artifactId>gaia-root</artifactId>
+    <groupId>com.github.spy.sea</groupId>
+    <artifactId>sea-root</artifactId>
     <packaging>pom</packaging>
 
     <version>1.0.0-SNAPSHOT</version>
@@ -13,7 +13,10 @@
     <parent>
         <groupId>io.spring.platform</groupId>
         <artifactId>platform-bom</artifactId>
+        <!-- 2.x -->
         <version>Cairo-SR7</version>
+        <!--1.x-->
+        <!--<version>Brussels-SR16</version>-->
     </parent>
 
 
@@ -27,18 +30,29 @@
 
         <maven.test.skip>true</maven.test.skip>
 
-        <fastjson.version>1.2.41</fastjson.version>
+        <fastjson.version>1.2.58</fastjson.version>
         <fasterxml.jackson>2.8.2</fasterxml.jackson>
         <powermock.version>1.4.12</powermock.version>
 
-        <druid.version>1.1.9</druid.version>
+        <druid.version>1.1.16</druid.version>
         <dubbo.version>2.5.3</dubbo.version>
         <zookeeper.version>3.4.10</zookeeper.version>
         <disruptor.version>3.4.1</disruptor.version>
 
 
+        <disconf.version>2.6.36</disconf.version>
+
         <mybatisplus-spring-boot-starter.version>2.1.9</mybatisplus-spring-boot-starter.version>
         <mybatisplus.version>2.1.9</mybatisplus.version>
+
+        <mybatis.version>3.5.0</mybatis.version>
+        <mybatis.spring.version>2.0.0</mybatis.spring.version>
+        <mybatis.tk.version>4.1.4</mybatis.tk.version>
+        <mybatis.tk.mapper.boot.version>2.1.5</mybatis.tk.mapper.boot.version>
+        <pageHelper.version>5.1.8</pageHelper.version>
+
+        <springfox.swagger.version>2.9.2</springfox.swagger.version>
+        <io.swagger.version>1.5.20</io.swagger.version>
 
     </properties>
 
@@ -124,6 +138,35 @@
                 <version>1.1.8</version>
             </dependency>
 
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper</artifactId>
+                <version>${mybatis.tk.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${mybatis.tk.mapper.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pageHelper.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.lmax</groupId>
@@ -131,10 +174,68 @@
                 <version>${disruptor.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.baidu.disconf</groupId>
+                <artifactId>disconf-client</artifactId>
+                <version>${disconf.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjtools</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-ehcache</artifactId>
+                <version>${apache-shiro.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-quartz</artifactId>
+                <version>${apache-shiro.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${io.swagger.version}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
 
+
+    <repositories>
+        <repository>
+            <!-- Maven 自带的中央仓库使用的Id为central 如果其他的仓库声明也是用该Id
+            就会覆盖中央仓库的配置 -->
+            <id>aliyun-repo</id>
+            <name>aliyun-repo</name>
+            <url>https://maven.aliyun.com/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <distributionManagement>
         <snapshotRepository>
