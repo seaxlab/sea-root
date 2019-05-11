@@ -8,7 +8,7 @@
     <artifactId>sea-root</artifactId>
     <packaging>pom</packaging>
 
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <parent>
         <groupId>io.spring.platform</groupId>
