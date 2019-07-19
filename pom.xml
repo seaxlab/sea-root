@@ -22,7 +22,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -49,7 +51,10 @@
         <mybatis.spring.version>2.0.0</mybatis.spring.version>
         <mybatis.tk.version>4.1.4</mybatis.tk.version>
         <mybatis.tk.mapper.boot.version>2.1.5</mybatis.tk.mapper.boot.version>
-        <pageHelper.version>5.1.8</pageHelper.version>
+
+        <pageHelper.version>5.1.10</pageHelper.version>
+        <pageHelper.boot.version>1.2.12</pageHelper.boot.version>
+
 
         <springfox.swagger.version>2.9.2</springfox.swagger.version>
         <io.swagger.version>1.5.20</io.swagger.version>
@@ -167,6 +172,12 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
                 <version>${pageHelper.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pageHelper.boot.version}</version>
             </dependency>
 
             <dependency>
