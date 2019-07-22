@@ -32,6 +32,7 @@
 
         <maven.test.skip>true</maven.test.skip>
 
+        <bcprov.version>1.62</bcprov.version>
         <fastjson.version>1.2.58</fastjson.version>
         <fasterxml.jackson>2.8.2</fasterxml.jackson>
         <powermock.version>1.4.12</powermock.version>
@@ -49,6 +50,8 @@
 
         <mybatis.version>3.5.0</mybatis.version>
         <mybatis.spring.version>2.0.0</mybatis.spring.version>
+        <mybatis.spring.boot.version>2.0.1</mybatis.spring.boot.version>
+
         <mybatis.tk.version>4.1.4</mybatis.tk.version>
         <mybatis.tk.mapper.boot.version>2.1.5</mybatis.tk.mapper.boot.version>
 
@@ -64,6 +67,12 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15on</artifactId>
+                <version>${bcprov.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -166,6 +175,13 @@
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis.spring.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.spring.boot.version}</version>
             </dependency>
 
             <dependency>
