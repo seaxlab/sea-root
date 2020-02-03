@@ -343,6 +343,16 @@
                 <artifactId>maven-source-plugin</artifactId>
             </plugin>
         </plugins>
+
+        <!--  exclude rebel.xml       -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>rebel.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
     </build>
 
 </project>
