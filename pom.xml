@@ -8,7 +8,7 @@
     <artifactId>sea-root</artifactId>
     <packaging>pom</packaging>
 
-    <version>1.3.0</version>
+    <version>1.4.0</version>
 
     <parent>
         <groupId>io.spring.platform</groupId>
@@ -289,11 +289,12 @@
 
     <repositories>
         <repository>
+            <!-- 默认源，如果阿里源出问题一般都是在这里 -->
             <!-- Maven 自带的中央仓库使用的Id为central 如果其他的仓库声明也是用该Id
             就会覆盖中央仓库的配置 -->
             <id>aliyun-repo</id>
             <name>aliyun-repo</name>
-            <url>https://maven.aliyun.com/</url>
+            <url>https://maven.aliyun.com/repository/public</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
