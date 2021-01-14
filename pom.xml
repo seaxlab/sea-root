@@ -46,8 +46,9 @@
         <zookeeper.version>3.4.10</zookeeper.version>
         <disruptor.version>3.4.1</disruptor.version>
 
-
+        <!-- config/registry center -->
         <disconf.version>2.6.36</disconf.version>
+        <nacos.version>1.4.0</nacos.version>
 
         <mybatisplus-spring-boot-starter.version>2.1.9</mybatisplus-spring-boot-starter.version>
         <mybatisplus.version>2.1.9</mybatisplus.version>
