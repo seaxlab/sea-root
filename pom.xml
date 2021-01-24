@@ -8,13 +8,13 @@
     <artifactId>sea-root</artifactId>
     <packaging>pom</packaging>
 
-    <version>1.4.5</version>
+    <version>2.0.1</version>
 
     <parent>
         <groupId>io.spring.platform</groupId>
         <artifactId>platform-bom</artifactId>
-        <!-- 2.x -->
-        <version>Cairo-SR7</version>
+        <!-- 2.0.x -->
+        <version>Cairo-SR8</version>
         <!--1.x-->
         <!--<version>Brussels-SR16</version>-->
     </parent>
@@ -32,6 +32,9 @@
 
         <maven.test.skip>true</maven.test.skip>
         <maven.javadoc.skip>true</maven.javadoc.skip>
+
+        <!--注意:必须和springboot版本匹配 https://spring.io/projects/spring-cloud -->
+        <spring.cloud.version>Finchley.SR4</spring.cloud.version>
 
         <commons.email>1.5</commons.email>
         <bcprov.version>1.62</bcprov.version>
@@ -289,6 +292,15 @@
                 <artifactId>nacos-client</artifactId>
                 <version>${nacos.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
