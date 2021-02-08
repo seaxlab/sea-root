@@ -10,7 +10,8 @@
 
 ### 2.1.x
 
-- TODO 尽快迁移spring-boot-starter-parent/spring-boot-dependencies
+- 支持git-commit-id-plugin
+- 已迁移spring-boot-starter-parent/spring-boot-dependencies
 
 ### 2.0.1 2020-01-24
 
