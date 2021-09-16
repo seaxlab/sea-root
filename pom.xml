@@ -8,7 +8,7 @@
     <artifactId>sea-root</artifactId>
     <packaging>pom</packaging>
 
-    <version>2.1.24</version>
+    <version>2.1.25</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
