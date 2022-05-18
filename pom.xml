@@ -8,13 +8,8 @@
     <artifactId>sea-root</artifactId>
     <packaging>pom</packaging>
 
-    <version>2.1.26</version>
+    <version>3.0.0</version>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.2.13.RELEASE</version>
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,56 +23,32 @@
         <maven.javadoc.skip>true</maven.javadoc.skip>
 
         <!-- maven plugin begin-->
+        <maven.source.version>3.1.0</maven.source.version>
+        <maven.jar.version>3.1.2</maven.jar.version>
+        <maven.javadoc.version>3.2.0</maven.javadoc.version>
         <maven.buildnumber.version>1.4</maven.buildnumber.version>
+        <maven.version.version>2.7</maven.version.version>
+        <maven.gitcommitid.version>4.0.3</maven.gitcommitid.version>
+        <maven.proguard.version>2.3.1</maven.proguard.version>
         <!-- maven plugin end-->
 
 
         <!--注意:必须和springboot版本匹配 https://spring.io/projects/spring-cloud -->
-        <spring.boot.version>2.2.13.RELEASE</spring.boot.version>
-        <spring.cloud.version>Hoxton.SR9</spring.cloud.version>
-<!--        <spring.boot.version>2.5.12</spring.boot.version>-->
-<!--        <spring.cloud.version>2020.0.5</spring.cloud.version>-->
-        <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
+        <!--<spring.boot.version>2.2.13.RELEASE</spring.boot.version>-->
+        <!--<spring.cloud.version>Hoxton.SR9</spring.cloud.version>-->
+        <!--<spring.boot.version>2.5.12</spring.boot.version>-->
+        <!--<spring.cloud.version>2020.0.5</spring.cloud.version>-->
+        <!--<spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>-->
 
         <commons.email>1.5</commons.email>
         <bcprov.version>1.62</bcprov.version>
         <fastjson.version>1.2.58</fastjson.version>
         <fasterxml.jackson>2.8.2</fasterxml.jackson>
-        <powermock.version>1.4.12</powermock.version>
-
-        <druid.version>1.2.8</druid.version>
-        <dubbo.version>2.5.3</dubbo.version>
-        <apache.dubbo.version>2.7.8</apache.dubbo.version>
-
-        <zookeeper.version>3.4.10</zookeeper.version>
-        <disruptor.version>3.4.1</disruptor.version>
-
-        <!-- config/registry center -->
-        <disconf.version>2.6.36</disconf.version>
-        <nacos.version>1.4.1</nacos.version>
 
         <mysql.version>5.1.47</mysql.version>
 
-        <mybatis.version>3.5.5</mybatis.version>
-        <mybatis.spring.version>2.0.0</mybatis.spring.version>
-        <mybatis.spring.boot.version>2.0.1</mybatis.spring.boot.version>
-
-        <mybatis.tk.version>4.1.4</mybatis.tk.version>
-        <mybatis.tk.mapper.boot.version>2.1.5</mybatis.tk.mapper.boot.version>
-
-        <!-- 依赖 mybatis 3.5.5+ -->
-        <mybatis.plus.version>3.4.3.3</mybatis.plus.version>
-        <mybatis.plus.generator.version>3.4.1</mybatis.plus.generator.version>
-        <velocity.version>2.3</velocity.version>
-
-        <pageHelper.version>5.1.10</pageHelper.version>
-        <pageHelper.boot.version>1.2.12</pageHelper.boot.version>
-
-
         <springfox.swagger.version>2.9.2</springfox.swagger.version>
         <io.swagger.version>1.5.20</io.swagger.version>
-
-        <baidu.uid.version>1.0.0</baidu.uid.version>
 
         <typesafe.config.version>1.3.4</typesafe.config.version>
         <guava.version>29.0-jre</guava.version>
@@ -91,283 +62,10 @@
         <url>https://github.com/spring-projects/spring-boot/spring-boot</url>
     </scm>
 
-    <dependencyManagement>
-        <dependencies>
-
-            <!--            <dependency>-->
-            <!--                <groupId>org.springframework.boot</groupId>-->
-            <!--                <artifactId>spring-boot-dependencies</artifactId>-->
-            <!--                <version>${spring.boot.version}</version>-->
-            <!--                <type>pom</type>-->
-            <!--                <scope>import</scope>-->
-            <!--            </dependency>-->
-
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.bouncycastle</groupId>
-                <artifactId>bcprov-jdk15on</artifactId>
-                <version>${bcprov.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
-
-            <!-- dubbo begin -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>dubbo</artifactId>
-                <version>${dubbo.version}</version>
-                <exclusions>
-                    <!--spring版本太低-->
-                    <exclusion>
-                        <artifactId>spring</artifactId>
-                        <groupId>org.springframework</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo</artifactId>
-                <version>${apache.dubbo.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.zookeeper</groupId>
-                <artifactId>zookeeper</artifactId>
-                <version>${zookeeper.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>slf4j-log4j12</artifactId>
-                        <groupId>org.slf4j</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <artifactId>log4j</artifactId>
-                        <groupId>log4j</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>com.101tec</groupId>
-                <artifactId>zkclient</artifactId>
-                <version>0.10</version>
-            </dependency>
-            <!--dubbo end -->
-
-
-            <!-- mybatis begin -->
-            <!--<dependency>-->
-            <!--<groupId>org.mybatis.spring.boot</groupId>-->
-            <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
-            <!--<version>1.3.1</version>-->
-            <!--</dependency>-->
-            <!--mybatis plus begin -->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis.plus.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-generator</artifactId>
-                <version>${mybatis.plus.generator.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity-engine-core</artifactId>
-                <version>${velocity.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <!--mybatis plus end -->
-            <!-- mybatis end -->
-
-            <dependency>
-                <groupId>com.github.stuxuhai</groupId>
-                <artifactId>jpinyin</artifactId>
-                <version>1.1.8</version>
-            </dependency>
-
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper</artifactId>
-                <version>${mybatis.tk.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper-spring-boot-starter</artifactId>
-                <version>${mybatis.tk.mapper.boot.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis-spring</artifactId>
-                <version>${mybatis.spring.version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.spring.boot.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper</artifactId>
-                <version>${pageHelper.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${pageHelper.boot.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.lmax</groupId>
-                <artifactId>disruptor</artifactId>
-                <version>${disruptor.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.baidu.disconf</groupId>
-                <artifactId>disconf-client</artifactId>
-                <version>${disconf.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjtools</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-ehcache</artifactId>
-                <version>${apache-shiro.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-quartz</artifactId>
-                <version>${apache-shiro.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${springfox.swagger.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${springfox.swagger.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-annotations</artifactId>
-                <version>${io.swagger.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.baidu.fsg</groupId>
-                <artifactId>uid-generator</artifactId>
-                <version>${baidu.uid.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>ch.qos.logback</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>com.typesafe</groupId>
-                <artifactId>config</artifactId>
-                <version>${typesafe.config.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-email</artifactId>
-                <version>${commons.email}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba.nacos</groupId>
-                <artifactId>nacos-client</artifactId>
-                <version>${nacos.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.codehaus.groovy</groupId>
-                <artifactId>groovy-all</artifactId>
-                <version>2.4.16</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-net</groupId>
-                <artifactId>commons-net</artifactId>
-                <version>3.6</version>
-            </dependency>
-
-        </dependencies>
-
-    </dependencyManagement>
-
-
     <repositories>
         <repository>
             <!-- 默认源，如果阿里源出问题一般都是在这里 -->
-            <!-- Maven 自带的中央仓库使用的Id为central 如果其他的仓库声明也是用该Id
-            就会覆盖中央仓库的配置 -->
+            <!-- Maven 自带的中央仓库使用的Id为central 如果其他的仓库声明也是用该Id, 就会覆盖中央仓库的配置 -->
             <id>aliyun-repo</id>
             <name>aliyun-repo</name>
             <url>https://maven.aliyun.com/repository/public</url>
@@ -410,7 +108,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <!--<version>2.2.1</version>-->
+                    <version>${maven.source.version}</version>
                     <executions>
                         <execution>
                             <id>attach-sources</id>
@@ -425,6 +123,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven.jar.version}</version>
                     <configuration>
                         <archive>
                             <addMavenDescriptor>false</addMavenDescriptor>
@@ -442,7 +141,7 @@
                 <plugin>
                     <groupId>com.github.wvengen</groupId>
                     <artifactId>proguard-maven-plugin</artifactId>
-                    <version>2.3.1</version>
+                    <version>${maven.proguard.version}</version>
                     <executions>
                         <execution>
                             <phase>package</phase>
@@ -451,6 +150,13 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>${maven.version.version}</version>
                 </plugin>
 
                 <!-- build number plugin -->
@@ -464,7 +170,7 @@
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
-                    <version>4.0.3</version>
+                    <version>${maven.gitcommitid.version}</version>
                     <executions>
                         <execution>
                             <id>get-the-git-infos</id>
@@ -515,7 +221,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>${maven.javadoc.version}</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
