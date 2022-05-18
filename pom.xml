@@ -24,6 +24,7 @@
 
         <!-- maven plugin begin-->
         <maven.source.version>3.1.0</maven.source.version>
+        <maven.compiler.version>3.8.1</maven.compiler.version>
         <maven.jar.version>3.1.2</maven.jar.version>
         <maven.javadoc.version>3.2.0</maven.javadoc.version>
         <maven.buildnumber.version>1.4</maven.buildnumber.version>
@@ -99,6 +100,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.version}</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
