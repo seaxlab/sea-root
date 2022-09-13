@@ -8,7 +8,7 @@
     <artifactId>sea-root</artifactId>
     <packaging>pom</packaging>
 
-    <version>2.2.0</version>
+    <version>2.2.1</version>
 
 
     <properties>
@@ -40,6 +40,11 @@
         <!--<spring.boot.version>2.5.12</spring.boot.version>-->
         <!--<spring.cloud.version>2020.0.5</spring.cloud.version>-->
         <!--<spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>-->
+
+        <!--  basic third library  -->
+        <logback.version>1.2.3</logback.version>
+        <lombok.version>1.18.16</lombok.version>
+        <slf4j.version>1.7.30</slf4j.version>
 
         <commons.email>1.5</commons.email>
         <bcprov.version>1.62</bcprov.version>
@@ -81,15 +86,16 @@
     </repositories>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>Snapshots</name>
-            <url>http://maven.yuantutech.com:8081/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
         <repository>
-            <id>releases</id>
-            <url>http://maven.yuantutech.com:8081/nexus/content/repositories/releases</url>
+            <id>zn_3rd</id>
+            <name>zn_3rd</name>
+            <url>http://nexus.znlhzl.org/repository/zn_3rd/</url>
         </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <name>maven-snapshots</name>
+            <url>http://nexus.znlhzl.org/repository/maven-snapshots/</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <build>
