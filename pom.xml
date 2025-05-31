@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
 
     <version>3.0.0</version>
+    <name>sea root pom</name>
     <description>sea root pom</description>
 
     <properties>
@@ -20,7 +21,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.test.skip>true</maven.test.skip>
-        <maven.javadoc.skip>true</maven.javadoc.skip>
+        <!-- <maven.javadoc.skip>true</maven.javadoc.skip> -->
 
         <!-- maven plugin begin-->
         <maven.source.version>3.1.0</maven.source.version>
@@ -188,7 +189,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <configuration>
-                    <!--                    <attach>false</attach>-->
+                    <!--central.sonatype-->
+                    <!--<attach>false</attach>-->
                 </configuration>
             </plugin>
 
