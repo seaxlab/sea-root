@@ -2,251 +2,258 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.seaxlab</groupId>
-    <artifactId>sea-root</artifactId>
-    <packaging>pom</packaging>
+  <groupId>io.github.seaxlab</groupId>
+  <artifactId>sea-root</artifactId>
+  <packaging>pom</packaging>
 
-    <version>3.0.1</version>
-    <name>sea root pom</name>
-    <description>sea root pom</description>
+  <version>3.0.1</version>
+  <name>sea root pom</name>
+  <description>sea root pom</description>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <java.version>11</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven.test.skip>true</maven.test.skip>
-        <!-- <maven.javadoc.skip>true</maven.javadoc.skip> -->
+    <java.version>11</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <maven.test.skip>true</maven.test.skip>
+    <!-- <maven.javadoc.skip>true</maven.javadoc.skip> -->
 
-        <!-- maven plugin begin-->
-        <maven.source.version>3.1.0</maven.source.version>
-        <maven.compiler.version>3.8.1</maven.compiler.version>
-        <maven.jar.version>3.1.2</maven.jar.version>
-        <maven.javadoc.version>3.2.0</maven.javadoc.version>
-        <maven.buildnumber.version>3.2.1</maven.buildnumber.version>
-        <maven.version.version>2.7</maven.version.version>
-        <maven.gitcommitid.version>4.0.3</maven.gitcommitid.version>
-        <maven.proguard.version>2.3.1</maven.proguard.version>
-        <!-- maven plugin end-->
+    <!-- maven plugin begin-->
+    <maven.source.version>3.1.0</maven.source.version>
+    <maven.compiler.version>3.8.1</maven.compiler.version>
+    <maven.deploy.version>3.1.2</maven.deploy.version>
+    <maven.jar.version>3.1.2</maven.jar.version>
+    <maven.javadoc.version>3.2.0</maven.javadoc.version>
+    <maven.buildnumber.version>3.2.1</maven.buildnumber.version>
+    <maven.version.version>2.7</maven.version.version>
+    <maven.gitcommitid.version>4.0.3</maven.gitcommitid.version>
+    <maven.proguard.version>2.3.1</maven.proguard.version>
+    <!-- maven plugin end-->
 
-        <!-- basic third library  -->
-        <logback.version>1.2.3</logback.version>
-        <lombok.version>1.18.36</lombok.version>
-        <slf4j.version>1.7.30</slf4j.version>
-    </properties>
+    <!-- basic third library  -->
+    <logback.version>1.2.3</logback.version>
+    <lombok.version>1.18.36</lombok.version>
+    <slf4j.version>1.7.30</slf4j.version>
+  </properties>
 
-    <!-- this is dummy scm for buildnumber-maven-plugin work well. -->
-    <scm>
-        <connection>scm:git:git://github.com/seaxlab/sea-root</connection>
-        <developerConnection>scm:git:ssh://git@github.com/seaxlab/sea-root</developerConnection>
-        <url>https://github.com/seaxlab/sea-root</url>
-    </scm>
+  <!-- this is dummy scm for buildnumber-maven-plugin work well. -->
+  <scm>
+    <connection>scm:git:git://github.com/seaxlab/sea-root</connection>
+    <developerConnection>scm:git:ssh://git@github.com/seaxlab/sea-root</developerConnection>
+    <url>https://github.com/seaxlab/sea-root</url>
+  </scm>
 
-    <developers>
-        <developer>
-            <name>shipengyan</name>
-            <email>shipengyan@aliyun.com</email>
-        </developer>
-    </developers>
+  <developers>
+    <developer>
+      <name>shipengyan</name>
+      <email>shipengyan@aliyun.com</email>
+    </developer>
+  </developers>
 
-    <url>https://github.com/seaxlab/sea-root.git</url>
+  <url>https://github.com/seaxlab/sea-root.git</url>
 
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
-
-
-    <build>
-        <!-- plugin define -->
-        <pluginManagement>
-            <plugins>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven.compiler.version}</version>
-                    <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven.source.version}</version>
-                    <executions>
-                        <execution>
-                            <id>attach-sources</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>jar-no-fork</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>${maven.jar.version}</version>
-                    <configuration>
-                        <archive>
-                            <addMavenDescriptor>false</addMavenDescriptor>
-                            <manifestEntries>
-                                <Built-By>${user.name}</Built-By>
-                            </manifestEntries>
-                            <manifest>
-                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            </manifest>
-                        </archive>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>com.github.wvengen</groupId>
-                    <artifactId>proguard-maven-plugin</artifactId>
-                    <version>${maven.proguard.version}</version>
-                    <executions>
-                        <execution>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>proguard</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
 
 
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <version>${maven.version.version}</version>
-                </plugin>
+  <build>
+    <!-- plugin define -->
+    <pluginManagement>
+      <plugins>
 
-                <!-- build number plugin -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>buildnumber-maven-plugin</artifactId>
-                    <version>${maven.buildnumber.version}</version>
-                </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven.compiler.version}</version>
+          <configuration>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
 
-                <plugin>
-                    <groupId>pl.project13.maven</groupId>
-                    <artifactId>git-commit-id-plugin</artifactId>
-                    <version>${maven.gitcommitid.version}</version>
-                    <executions>
-                        <execution>
-                            <id>get-the-git-infos</id>
-                            <goals>
-                                <goal>revision</goal>
-                            </goals>
-                            <phase>initialize</phase>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <!-- 检查的仓库根目录，${project.basedir}：项目根目录，即包含pom.xml文件的目录 -->
-                        <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-                        <!-- 定义插件中所有时间格式，默认值：yyyy-MM-dd’T’HH:mm:ssZ -->
-                        <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
-                        <!-- git属性文件中各属性前缀，默认值git，可以不配置 -->
-                        <prefix>git</prefix>
-                        <!-- 生成git属性文件，默认false：不生成 -->
-                        <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                        <!-- 生成git属性文件路径及文件名，默认${project.build.outputDirectory}/git.properties -->
-                        <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties
-                        </generateGitPropertiesFilename>
-                        <!-- 配置git-describe命令 -->
-                        <gitDescribe>
-                            <skip>false</skip>
-                            <always>false</always>
-                            <dirty>-dirty</dirty>
-                        </gitDescribe>
-                    </configuration>
-                </plugin>
-            </plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${maven.source.version}</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
 
-        </pluginManagement>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${maven.deploy.version}</version>
+        </plugin>
 
-        <!-- plugin use for default -->
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${maven.jar.version}</version>
+          <configuration>
+            <archive>
+              <addMavenDescriptor>false</addMavenDescriptor>
+              <manifestEntries>
+                <Built-By>${user.name}</Built-By>
+              </manifestEntries>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <configuration>
-                    <!--central.sonatype-->
-                    <!--<attach>false</attach>-->
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven.javadoc.version}</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <doclint>none</doclint>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+        <plugin>
+          <groupId>com.github.wvengen</groupId>
+          <artifactId>proguard-maven-plugin</artifactId>
+          <version>${maven.proguard.version}</version>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>proguard</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
 
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>versions-maven-plugin</artifactId>
+          <version>${maven.version.version}</version>
+        </plugin>
 
-            <plugin>
-                <groupId>org.sonatype.central</groupId>
-                <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>0.7.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <publishingServerId>central</publishingServerId>
-                </configuration>
-            </plugin>
-        </plugins>
+        <!-- build number plugin -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>buildnumber-maven-plugin</artifactId>
+          <version>${maven.buildnumber.version}</version>
+        </plugin>
 
-        <!--  exclude rebel.xml       -->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>rebel.xml</exclude>
-                </excludes>
-            </resource>
-        </resources>
-    </build>
+        <plugin>
+          <groupId>pl.project13.maven</groupId>
+          <artifactId>git-commit-id-plugin</artifactId>
+          <version>${maven.gitcommitid.version}</version>
+          <executions>
+            <execution>
+              <id>get-the-git-infos</id>
+              <goals>
+                <goal>revision</goal>
+              </goals>
+              <phase>initialize</phase>
+            </execution>
+          </executions>
+          <configuration>
+            <!-- 检查的仓库根目录，${project.basedir}：项目根目录，即包含pom.xml文件的目录 -->
+            <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+            <!-- 定义插件中所有时间格式，默认值：yyyy-MM-dd’T’HH:mm:ssZ -->
+            <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
+            <!-- git属性文件中各属性前缀，默认值git，可以不配置 -->
+            <prefix>git</prefix>
+            <!-- 生成git属性文件，默认false：不生成 -->
+            <generateGitPropertiesFile>true</generateGitPropertiesFile>
+            <!-- 生成git属性文件路径及文件名，默认${project.build.outputDirectory}/git.properties -->
+            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties
+            </generateGitPropertiesFilename>
+            <!-- 配置git-describe命令 -->
+            <gitDescribe>
+              <skip>false</skip>
+              <always>false</always>
+              <dirty>-dirty</dirty>
+            </gitDescribe>
+          </configuration>
+        </plugin>
+      </plugins>
+
+    </pluginManagement>
+
+    <!-- plugin use for default -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <configuration>
+          <!--central.sonatype-->
+          <!--<attach>false</attach>-->
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven.javadoc.version}</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <doclint>none</doclint>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>0.7.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
+        </configuration>
+      </plugin>
+    </plugins>
+
+    <!--  exclude rebel.xml       -->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>rebel.xml</exclude>
+        </excludes>
+      </resource>
+    </resources>
+  </build>
 
 </project>
