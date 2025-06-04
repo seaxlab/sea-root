@@ -8,7 +8,7 @@
   <artifactId>sea-root</artifactId>
   <packaging>pom</packaging>
 
-  <version>3.0.4</version>
+  <version>3.0.5</version>
   <name>sea root pom</name>
   <description>sea root pom</description>
 
@@ -248,6 +248,8 @@
         <extensions>true</extensions>
         <configuration>
           <publishingServerId>central</publishingServerId>
+          <autoPublish>true</autoPublish>
+          <waitUntil>validated</waitUntil>
         </configuration>
       </plugin>
     </plugins>
